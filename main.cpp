@@ -1,15 +1,27 @@
 ﻿#include <iostream>
 using namespace std;
 
-double my_pow(double a, unsigned int n)
+double my_pow(double a, int n)
 {
     double ch = a;
-    a = 1;
 
-    for (int i = 0; i < n; i++)
-    {
-        a *= ch;
-    }
+    if (n < 0)
+        while ((n - 1) != 0)
+        {
+            a /= ch;
+            n++;
+        }
+    else
+        if (n > 0)
+            while ((n - 1) != 0)
+            {
+                a *= ch;
+                n--;
+            }
+        else a = 1;
+
+
+
     return a;
 }
 
@@ -19,7 +31,7 @@ int main()
     setlocale(LC_ALL, "Russian");
 
     double a;
-    unsigned int n;
+    int n;
     cout << "Ввод числа: \n";
 
     while (cin >> a)
